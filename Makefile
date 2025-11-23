@@ -1,16 +1,19 @@
 CC := gcc
 CFLAGS := -std=c99 -Wall -Wextra -pedantic
-LIBS := 
 
 main: main.c
 	${CC} ${CFLAGS} $@.c -o $@
 
+.PHONY: run
 run: main
 	./main
 
-debug: main
-	gdb ./main
+.PHONY: debug
+debug: CFLAGS += -g
+debug: clean main
+	gdb
 
-clean: main
+.PHONY: clean
+clean:
 	rm main
 

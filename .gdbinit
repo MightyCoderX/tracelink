@@ -1,4 +1,5 @@
 set debuginfod enabled on
-layout src
+file ./main
+set args /bin/apropos
 start
 
